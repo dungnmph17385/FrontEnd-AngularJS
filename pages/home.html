@@ -1,0 +1,71 @@
+<div class="row" style="height: 100px;"></div>
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="/imgs/banner.png" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="/imgs/banner.png" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="/imgs/banner.png" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<!-- courses -->
+<section class="section-sm">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex align-items-center section-title justify-content-between">
+                    <h2 class="mb-0 text-nowrap mr-3">Our Course</h2>
+                    <!-- <div class="border-top w-100 border-primary d-none d-sm-block"></div> -->
+                    <div>
+                        <a href="#!courses" class="btn btn-sm btn-primary ml-sm-3 d-none d-sm-block">See
+                            all</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- course list -->
+        <div class="row justify-content-center" ng-controller="mySubject">
+            <!-- course item -->
+            <div class="col-lg-4 col-sm-6 mb-5" ng-repeat="item in listSubject|limitTo:6:0">
+                <div class="card p-0 border-primary rounded-0 hover-shadow">
+                    <img class="card-img-top rounded-0" src="imgs/logos/{{item.Logo}}">
+                    <div class="card-body">
+                        <ul class="list-inline mb-2">
+                            <li class="list-inline-item"><i class="ti-calendar mr-1 text-color"></i></li>
+                            <li class="list-inline-item"></a></li>
+                        </ul>
+                        <a href="" class="text-decoration-none">
+                            <h4 class="card-title">{{item.Name}}</h4>
+                        </a>
+                        <p class="card-text mb-4"> Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do.</p>
+                        <a href="#!quiz/{{item.Id}}/{{item.Name}}" class="btn btn-primary btn-sm">Apply now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- /course list -->
+            <!-- mobile see all button -->
+            <div class="row">
+                <div class="col-12 text-center">
+                    <a href="#!courses" class="btn btn-sm btn-primary-outline d-sm-none d-inline-block">see all</a>
+                </div>
+            </div>
+        </div>
+</section>
+<!-- /courses -->

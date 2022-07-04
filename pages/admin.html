@@ -1,0 +1,229 @@
+<!-- page title -->
+<section class="banner-title-section overlay" style="background-image: url('../imgs/banner-title.jpg');">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <ul class="list-inline custom-breadcrumb">
+                    <li class="list-inline-item"><a class="h2 text-primary font-secondary">Bảng quản trị</a></li>
+                    <li class="list-inline-item text-white h3 font-secondary @@nasted"></li>
+                </ul>
+                <p class="text-lighten">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                    eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /page title -->
+
+<div class="container-fluid">
+    <h3 class="text-center my-5" ng-show="user == null">
+        Vui lòng đăng nhập để vào trang quản lý !
+    </h3>
+</div>
+
+<section class="section bg-gray" ng-show="user != null">
+    <div class="container-fluid" style="max-width: 90%;">
+        <div class="row">
+            <div class="col-2">
+                <div class="nav flex-column nav-pills bg-info" aria-orientation="vertical">
+                    <a class="nav-link active text-white py-3" data-toggle="pill" data-target="#v-pills-tk" role="tab"
+                        aria-selected="true">Quản lý tài khoản</a>
+                    <a class="nav-link text-white py-3" data-toggle="pill" data-target="#v-pills-kh" role="tab"
+                        aria-selected="false">Quản lý khoá học</a>
+                </div>
+            </div>
+            <div class="col-10">
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="v-pills-tk">
+                        <div class="row" ng-controller="myAccount">
+                            <div class="col-12 col-md-12">
+                                <form class="border border-secondary p-3" name="frmAccount">
+                                    <div class="row">
+                                        <div class="col-6 col-md-6">
+                                            <label class="mt-2">Username</label>
+                                            <input type="text" name="username" class="form-control" placeholder="abc.."
+                                                ng-model="taiKhoan.username" required />
+                                            <small class="text-danger d-block"
+                                                ng-hide="frmAccount.username.$untouched || frmAccount.username.$valid">Vui
+                                                lòng nhập tài khoản</small>
+                                        </div>
+                                        <div class="col-6 col-md-6">
+                                            <label class="mt-2">Password</label>
+                                            <input type="password" name="password" class="form-control"
+                                                placeholder="******" ng-model="taiKhoan.password" required />
+                                            <small class="text-danger d-block"
+                                                ng-hide="frmAccount.password.$untouched || frmAccount.password.$valid">Vui
+                                                lòng nhập mật khẩu</small>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 col-md-6">
+                                            <label class="mt-2">Họ và Tên</label>
+                                            <input type="text" name="fullName" class="form-control"
+                                                placeholder="Nguyễn Văn A" ng-model="taiKhoan.fullname" required />
+                                            <small class="text-danger d-block"
+                                                ng-hide="frmAccount.fullName.$untouched || frmAccount.fullName.$valid">Vui
+                                                lòng nhập họ và tên</small>
+                                        </div>
+                                        <div class="col-6 col-md-6">
+                                            <label class="mt-2">Địa chỉ email</label>
+                                            <input type="email" name="email" class="form-control"
+                                                placeholder="abc@gmail.com" ng-model="taiKhoan.email" required />
+                                            <small class="text-danger d-block"
+                                                ng-hide="frmAccount.email.$untouched || frmAccount.email.$valid">Vui
+                                                lòng nhập đúng email</small>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 col-md-6">
+                                            <label class="mt-2">Ngày sinh</label>
+                                            <input type="date" name="birthday" class="form-control"
+                                                placeholder="01-01-1999" ng-model="taiKhoan.birthday" required />
+                                            <small class="text-danger d-block"
+                                                ng-hide="frmAccount.birthday.$untouched || frmAccount.birthday.$valid">Vui
+                                                lòng nhập ngày sinh</small>
+                                        </div>
+                                        <div class="col-6 col-md-6">
+                                            <label class="mt-2">Marks</label>
+                                            <input type="text" name="marks" class="form-control" placeholder="0"
+                                                ng-model="taiKhoan.marks" required />
+                                            <small class="text-danger d-block"
+                                                ng-hide="frmAccount.marks.$untouched || frmAccount.marks.$valid">Vui
+                                                lòng nhập điểm</small>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 col-md-6">
+                                            <label class="mt-2">Schoolfee</label>
+                                            <input type="text" id="schoolfee" name="schoolfee" class="form-control"
+                                                placeholder="0000000" ng-model="taiKhoan.schoolfee" required />
+                                            <small class="text-danger d-block"
+                                                ng-hide="frmAccount.schoolfee.$untouched || frmAccount.schoolfee.$valid">Vui
+                                                lòng nhập schoolfee</small>
+                                        </div>
+                                        <div class="col-6 col-md-6">
+                                            <div class="row">
+                                                <div class="col-6 col-md-6">
+                                                    <label class="mt-2">Giới tính</label>
+                                                    <div class="row">
+                                                        <div class="col-4 my-3">
+                                                            <input type="radio" ng-model="taiKhoan.gender" ng-checked="taiKhoan.gender == 1" value="1"
+                                                                name="gioi_tinh" />
+                                                            <label class="mt-2">Nam</label>
+                                                        </div>
+                                                        <div class="col-4 my-3">
+                                                            <input type="radio" ng-model="taiKhoan.gender" ng-checked="taiKhoan.gender == 0" value="0"
+                                                                name="gioi_tinh" />
+                                                            <label class="mt-2">Nữ</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 col-md-6">
+                                                    <label class="mt-2" for="permission">Quyền truy cập</label>
+                                                    <div class="row">
+                                                        <div class="col-4 mt-3">
+                                                            <input type="radio" ng-model="taiKhoan.permission"
+                                                                value="admin" checked name="permission" />
+                                                            <label class="mt-2">admin</label>
+                                                        </div>
+                                                        <div class="col-4 mt-3">
+                                                            <input type="radio" ng-model="taiKhoan.permission"
+                                                                value="user" name="permission" />
+                                                            <label class="mt-2">user</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text-center mt-3">
+                                        <button ng-click="add()" class="btn btn-primary my-2">Thêm mới</button>
+                                        <button ng-click="update()" class="btn btn-success my-2">Cập nhật</button>
+                                        <button ng-click="refesh()" class="btn btn-info my-2">Làm mới</button>
+                                    </div>
+                                </form>
+                                <table class="table table-bordered mt-3">
+                                    <thead class="bg-danger text-white">
+                                        <tr>
+                                            <th class="py-4">Tài khoản</th>
+                                            <th class="py-4">Mật khẩu</th>
+                                            <th class="py-4">Họ và tên</th>
+                                            <th class="py-4">Email</th>
+                                            <th class="py-4">Ngày sinh</th>
+                                            <th class="py-4">Điểm</th>
+                                            <th class="py-4">Schoolfee</th>
+                                            <th class="py-4">Giới tính</th>
+                                            <th class="py-4">Quyền</th>
+                                            <th class="py-4">#</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="st in users">
+                                            <td class="align-middle">{{st.username}}</td>
+                                            <td class="align-middle">{{st.password}}</td>
+                                            <td class="align-middle">{{st.fullname}}</td>
+                                            <td class="align-middle">{{st.email}}</td>
+                                            <td class="align-middle">{{st.birthday}}</td>
+                                            <td class="align-middle">{{st.marks}}</td>
+                                            <td class="align-middle">{{st.schoolfee}} VNĐ</td>
+                                            <td class="align-middle">
+                                                <span ng-if="st.gender = 1">Nam</span>
+                                                <span ng-if="st.gender = 0">Nữ</span>
+                                            </td>
+                                            <td class="align-middle">{{st.permission}}</td>
+                                            <td class="text-center">
+                                                <button ng-click="edit($index)" class="btn-sm btn-success">Sửa</button>
+                                                <br>
+                                                <button ng-click="delete($index)" class="btn-sm btn-danger">Xoá</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-kh">
+                        <div class="row" ng-controller="mySubject">
+                            <div class="col-12 col-md-12">
+                                <form class="border border-secondary p-3">
+                                    <label class="mt-2">Id</label>
+                                    <input class="form-control" type="text" ng-model="monHoc.Id" />
+                                    <label class="mt-2">Name</label>
+                                    <input class="form-control" type="text" ng-model="monHoc.Name" />
+                                    <label class="mt-2">Logo</label>
+                                    <input class="form-control mb-3" type="text" ng-model="monHoc.Logo" />
+                                    <div class="text-center">
+                                        <button class="btn btn-primary" ng-click="add()">Thêm mới</button>
+                                        <button class="btn btn-success" ng-click="update()">Cập nhật</button>
+                                        <button class="btn btn-info" ng-click="refesh()">Làm mới</button>
+                                    </div>
+                                </form>
+                                <table class="table table-bordered mt-3">
+                                    <thead class="bg-danger text-white">
+                                        <tr>
+                                            <th class="py-4">Id</th>
+                                            <th class="py-4">Name</th>
+                                            <th class="py-4">Logo</th>
+                                            <th class="py-4">#</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="mh in listSubject">
+                                            <td class="align-middle">{{mh.Id}}</td>
+                                            <td class="align-middle">{{mh.Name}}</td>
+                                            <td class="align-middle">{{mh.Logo}}</td>
+                                            <td>
+                                                <button ng-click="edit($index)" class="btn-sm btn-success">Sửa</button>
+                                                <button ng-click="delete($index)" class="btn-sm btn-danger">Xoá</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

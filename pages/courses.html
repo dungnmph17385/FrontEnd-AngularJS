@@ -1,0 +1,37 @@
+<div class="row" style="height: 100px;"></div>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#!">Trang chủ</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Khóa học</li>
+    </ol>
+  </nav>
+<section class="section">
+    <div class="container">
+        <!-- course list -->
+        <div class="row justify-content-center">
+            <!-- course item -->
+            <div class="col-lg-4 col-sm-6 mb-5" ng-repeat="item in listSubject|limitTo:pageSize:start">
+                <div class="card p-0 border-primary rounded-0 hover-shadow">
+                    <img class="card-img-top rounded-0" src="imgs/logos/{{item.Logo}}" alt="course">
+                    <div class="card-body">
+                        <ul class="list-inline mb-2">
+                            <li class="list-inline-item"><i class="ti-calendar mr-1 text-color"></i></li>
+                            <li class="list-inline-item"><a class="text-color" href=""></a></li>
+                        </ul>
+                        <a href="#!quiz/{{item.Id}}/{{item.Name}}" class="text-decoration-none">
+                            <h4 class="card-title">{{item.Name}}</h4>
+                        </a>
+                        <p class="card-text mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do.</p>
+                        <a href="#!quiz/{{item.Id}}/{{item.Name}}" class="btn btn-primary btn-sm">Apply now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 card-footer text-center">
+                <button class="btn btn-success" ng-click="prev()">Trước</button>
+                <button class="btn btn-success" ng-click="next()">Sau</button>
+            </div>
+        </div>
+        <!-- /course list -->
+    </div>
+</section>
+<!-- /courses -->

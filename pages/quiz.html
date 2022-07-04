@@ -1,0 +1,116 @@
+<!-- page title -->
+<section class="banner-title-section overlay" style="background-image: url('../imgs/banner-title.jpg');">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <ul class="list-inline custom-breadcrumb">
+                    <li class="list-inline-item"><a class="h2 text-primary font-secondary">QuizZ</a></li>
+                    <li class="list-inline-item text-white h3 font-secondary "></li>
+                </ul>
+                <p class="text-lighten">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                    eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /page title -->
+
+<!-- section -->
+<section class="section-sm" ng-show="!inProgess">
+    <div class="container">
+        <!-- course info -->
+        <div class="row align-items-center mb-5">
+            <div class="col-xl-8 order-1 col-sm-6 mb-4 mb-xl-0">
+                <h2>{{subjectName}}</h2>
+            </div>
+            <div class="col-xl-2 order-sm-3 order-xl-2 col-12 order-2">
+                <ul class="list-inline text-xl-center">
+                    <li class="list-inline-item mr-4 mb-3 mb-sm-0">
+                        <div class="d-flex align-items-center">
+                            <i class="ti-alarm-clock text-primary icon-md mr-2"></i>
+                            <div class="text-left">
+                                <h6 class="mb-0">DURATION</h6>
+                                <p class="mb-0">10 Minutes</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xl-2 text-sm-right text-left order-sm-2 order-3 order-xl-3 col-sm-6 mb-4 mb-xl-0">
+                <a role="button" ng-click="start()" class="btn btn-primary">Start now</a>
+            </div>
+            <!-- border -->
+            <div class="col-12 mt-4 order-4">
+                <div class="border-bottom border-primary"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /section -->
+
+<!-- section -->
+<section class="section-sm" ng-show="inProgess">
+    <div class="container">
+        <div class="row" ng-show="quizOver">
+            <div class="col text-center py-5 bg-info">
+                <h2 class="mb-3 text-dark">Quiz is Over</h2>
+                <h5 class="mb-3 text-white">Số câu trả lời đúng: {{score}}/10</h5>
+                <button class="btn btn-danger py-3" ng-click="reset()">Play again</button>
+            </div>
+        </div>
+        <div ng-show="!quizOver">
+            <div class="row">
+                <div class="col text-center mb-2">
+                    <h2>
+                        <i class="ti-alarm-clock"></i>
+                        <span ng-show="minitues<10">0</span>{{minitues}}:<span ng-show="seconds<10">0</span>{{seconds}}
+                    </h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="card border-info">
+                        <div class="card-header text-white bg-info">
+                            <span class="float-left p-2">{{subjectName}}</span>
+                            <span class="float-right p-2">Question {{id}} of 10</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-text">
+                                <h5>{{question}}</h5>
+                                <hr>
+                                <div class="form-check py-2" ng-repeat="as in options">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="radio" name="answer"
+                                            value="{{as.Id}}">{{as.Text}}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col-8">
+                                <div ng-show="answerMode">
+                                    <button ng-click="checkAnswer()" class="btn btn-success">Submit</button>
+                                </div>
+                                <div ng-show="!answerMode">
+                                    <button ng-click="nextQuestion()" class="btn btn-success">Next
+                                        question</button>
+                                    <b ng-show="correctAns">&nbsp; Correct!</b>
+                                    <b ng-show="!correctAns">&nbsp; Sorry, In Correct!</b>
+                                </div>
+                            </div>
+                            <div class="col-2"><div class="">Mark: {{score}}/10</div> </div>
+                            <div class="col-2 mt-1">
+                                <button type="button" class="btn btn-primary" ng-click="ketThuc()">
+                                    Kết thúc
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /section -->
